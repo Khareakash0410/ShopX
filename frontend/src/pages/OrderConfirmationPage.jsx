@@ -44,7 +44,7 @@ const calculateEstimateDelivery = (createdAt) => {
           ✅ Success
         </div>
       
-        <div className='flex justify-between mb-20'>
+        <div className='flex justify-between sm:flex-row flex-col mb-20'>
           {/* Order ID and Date */}
           <div>
             <h2 className='text-xl text-gray-300 font-semibold'>

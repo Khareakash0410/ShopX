@@ -255,7 +255,7 @@ const ProductManagement = () => {
         {/* Image Upload */}
         <div className="mb-6">
           <label className="block font-semibold mb-2">Upload Image</label>
-          <input type="file" onChange={handleImageUpload} className="bg-gray-800 text-gray-300 p-2 rounded-lg"/>
+          <input type="file" onChange={handleImageUpload} className="w-full bg-gray-800 p-3 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-400"/>
           {uploading && <p className="text-blue-600 mt-2">Uploading Image...</p>}
           <div className="flex gap-4 mt-4">
             {productsData.images.map((image, index) => (

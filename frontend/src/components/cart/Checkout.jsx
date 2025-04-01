@@ -18,6 +18,8 @@ const Checkout = () => {
 
     const {user} = useSelector((state) => state.auth);
 
+    const [myButton, setMyButton] = useState(false);
+
 
     const [checkoutId, setCheckoutId] = useState(null);
 
@@ -43,6 +45,7 @@ const Checkout = () => {
 
     const handleCreateCheckout = async (e) => {
       e.preventDefault();
+      setMyButton(true);
       if (cart && cart.products.length > 0)  {
         const res = await dispatch(createCheckout({
           checkoutItems: cart.products,
@@ -53,6 +56,7 @@ const Checkout = () => {
       ));
 
        if(res.payload && res.payload._id) {
+        setMyButton(false);
         setCheckoutId(res.payload._id);  //set checkout Id if checkout was successfull----
        }
       }
@@ -195,7 +199,7 @@ const Checkout = () => {
             <div className='mt-6'>
               {
                 !checkoutId ? 
-                (<button type='submit' className='w-full bg-yellow-300 text-black py-3 rounded'>Continue to Payment</button>) 
+                (<button type='submit' className='w-full bg-yellow-300 text-black py-3 rounded'>{myButton ? "Please Wait" : "Continue to Payment"}</button>) 
                 : 
                 (
                     <div>
